@@ -7,7 +7,7 @@
   "author": "xiaopo",
   "license": "MIT",
   "scripts": {
-    "preview": "webpack-cli --config .webpack-config/webpack.preview.js",
+    "preview": "webpack-cli serve --config .webpack-config/webpack.preview.js",
     "build": "webpack-cli --config .webpack-config/webpack.prod.js",
     "build:publish": "npm run build & node build-tools/publish"
   },
