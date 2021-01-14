@@ -62,3 +62,7 @@ ReactDom.render(
 ### build-only branch
 
 因为 master 分支有 example 相关的 dependencies ，会使 CI 运行缓慢，如果只需要构建功能请使用 build-only branch
+
+### Github-Action
+
+如果需要使用 `Github action` 请修改 `.github/workflows/build.yml` 中的 `on.push`.

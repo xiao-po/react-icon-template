@@ -13,16 +13,23 @@ class IconGeneratePlugin {
     this.config = Object.assign({}, defaultConfig, config ?? {});
   }
 
-  generate = _.debounce(() => {
-    iconGenerator.generate(this.config);
-    console.log(`
+  generate = _.debounce(
+    () => {
+      iconGenerator.generate(this.config);
+      console.log(`
 ----------------------------------
  icon re-generated and good-luck
 ----------------------------------
 `);
-  }, 50);
+    },
+    300,
+    {
+      leading: true,
+    }
+  );
 
   start() {
+    console.log("icon generate plugin start works");
     this.assetsWatcher = chokidar.watch(this.config.assetsPath, {
       ignored: /^\./,
       persistent: true,
@@ -31,7 +38,8 @@ class IconGeneratePlugin {
       .on("add", this.generate)
       .on("change", this.generate)
       .on("unlink", this.generate);
-    console.log("icon generate plugin start works");
+
+    this.generate();
   }
 
   stop() {

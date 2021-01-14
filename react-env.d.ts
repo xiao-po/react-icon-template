@@ -49,8 +49,8 @@ declare module "*.svg" {
 }
 
 declare module "*.md" {
-  const link: string;
-  export default link;
+  const content: string;
+  export default content;
 }
 
 declare module "*.module.css" {
